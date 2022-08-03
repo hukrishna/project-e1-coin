@@ -1,5 +1,6 @@
 package pagefactory;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,6 +30,9 @@ public class CoinMarket_PF {
 	
 	@FindBy(css = "div:nth-child(1) > ul > .optionGroupItem:nth-child(2)")
 	WebElement select_pow;
+	
+	@FindBy(xpath = "/html/body/div[1]/div/div[1]/div[2]/div/div[2]/div[2]/div[1]")
+	WebElement action_close;
 	
 	WebDriver driver;
 	
@@ -60,5 +64,9 @@ public class CoinMarket_PF {
 	public void selectPow() {
 		select_pow.click();
 	}
+	
+	//public WebElement actionClose() {
+		//action_close.click();
+//	}
 
 }
