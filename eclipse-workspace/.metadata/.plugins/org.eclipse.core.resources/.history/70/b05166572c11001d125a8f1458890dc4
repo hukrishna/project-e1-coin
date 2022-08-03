@@ -1,0 +1,14 @@
+package pagefactory;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class CoinMarket_PF {
+	
+	@FindBy(xpath = "/html/body/div[1]/div/div[1]/div[2]/div/div[2]/div[2]/div[1]")
+	WebElement close_popup_listener;
+	
+	@FindBy(css = ".ekMmID > .sc-16r8icm-0 > .sc-16r8icm-0")
+	WebElement row_display;
+
+}

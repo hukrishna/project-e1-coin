@@ -1,0 +1,8 @@
+Feature: Coinbase application simple test for exercise
+
+  Scenario: Navigate to the coinbase market
+    Given navigate to the coinbase application
+    And close all the start pop up event listener
+    When filter show column to display specified rows
+    Then Capture all the content of the page for price name position
+	

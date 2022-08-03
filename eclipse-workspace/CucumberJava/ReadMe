@@ -1,0 +1,9 @@
+
+Test Creation
+
+1. Test written follows BDD-Cucumber framework in Java
+2. The structure of the framework contains Feature file, stepdefinition, libs, pagefactory, support
+3. Feature file contains one scenario with all the steps
+4. Written a library to read and set the excel values 
+5. test runner is configured to generate report which is stored in target directory
+6. the package can be run with Junit

@@ -1,0 +1,54 @@
+package StepDefinitions;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class CoinMarketSteps {
+	
+	WebDriver driver = null;
+	
+	
+	@Given("navigate to the coinbase application")
+	public void navigate_to_the_coinbase_application() {
+	    
+		System.out.println("first test step");
+		
+		//String projectPath = System.getProperty("user.dir");
+		
+		System.setProperty("webdriver.chrome.driver", "/CucumberJava/src/test/resources/drivers/chromedriver");
+		
+		driver = new ChromeDriver();
+		
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(50, TimeUnit.SECONDS);
+		
+		driver.manage().window().maximize();
+		
+	}
+
+	@And("close all the start pop up event listener")
+	public void close_all_the_start_pop_up_event_listener() {
+		
+		System.out.println("second test step");
+	}
+
+	@When("filter show column to display specified rows")
+	public void filter_show_column_to_display_specified_rows() {
+		
+		System.out.println("third test step");
+	}
+
+	@Then("Capture all the content of the page for price name position")
+	public void capture_all_the_content_of_the_page_for_price_name_position() {
+		
+		System.out.println("fourth test step");
+	}
+
+}

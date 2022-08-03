@@ -1,0 +1,28 @@
+package pagefactory;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class Additional_Filter {
+
+
+	
+	@FindBy(css = "div:nth-child(1) > ul > .optionGroupItem:nth-child(2)")
+	WebElement select_pow;
+	
+	WebDriver driver;
+	
+	public Additional_Filter(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver,this);
+	}
+	
+
+	
+	public void selectPow() {
+		select_pow.click();
+	}
+
+}

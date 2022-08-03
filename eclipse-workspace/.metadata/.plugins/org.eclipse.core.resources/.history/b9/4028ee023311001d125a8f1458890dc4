@@ -1,0 +1,37 @@
+package pagefactory;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class CoinMarket_PF {
+	
+	//@FindBy(xpath = "/html/body/div[1]/div/div[1]/div[2]/div/div[2]/div[2]/div[1]")
+	//WebElement close_popup_listener;
+	
+	
+	
+	@FindBy(xpath = "/html/body/div[1]/div/div[1]/div[2]/div/div/div[4]/div[2]/div[3]/div[1]/div")
+	WebElement row_display;
+	
+	@FindBy(css = ".bnhhNH:nth-child(3)")
+	WebElement select_dropdown;
+	
+	WebDriver driver;
+	
+	public CoinMarket_PF(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver,CoinMarket_PF.class);
+	}
+	
+	public void showRow() {
+		row_display.click();
+	}
+	
+	public void selectRow() {
+		select_dropdown.click();
+	}
+	
+
+}

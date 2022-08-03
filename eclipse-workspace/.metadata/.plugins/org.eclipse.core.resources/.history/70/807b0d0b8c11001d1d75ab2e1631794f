@@ -1,0 +1,33 @@
+
+public class Webtable {
+	
+	public static void main(String[] args) {
+		
+		WebDriver driver = new FirefoxDriver() ;
+
+        driver.navigate().to("https://coinmarketcap.com");
+        driver.manage().window().maximize();
+
+        Thread.sleep(5000,20);
+
+        WebElement m= driver.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div[2]/div[2]/div[1]"));
+        // Action class to move and click element
+        Actions a = new Actions(driver);
+        a.moveToElement(m).
+                click().build().perform();
+
+        Thread.sleep(5000,20);
+        List<WebElement> colList = driver.findElements(By.xpath("//table[@class='h7vnx2-2 czTsgW cmc-table']//thread//tr//th"));
+        System.out.println(colList.size());
+
+        int columnIndex = 0;
+        for(int i=0; i<colList.size(); i++){
+            System.out.println(colList.get(i).getText());
+            if("Price".equalsIgnoreCase(colList.get(i).getText())){
+                columnIndex = i ;
+                break;
+            }
+        }
+	}
+
+}

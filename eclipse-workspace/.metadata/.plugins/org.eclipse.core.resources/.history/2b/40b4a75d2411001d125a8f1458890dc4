@@ -1,0 +1,34 @@
+package StepDefinitions;
+
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class CoinMarketSteps {
+	
+	@Given("navigate to the coinbase application")
+	public void navigate_to_the_coinbase_application() {
+	    
+		System.out.println("first test step");
+	}
+
+	@And("close all the start pop up event listener")
+	public void close_all_the_start_pop_up_event_listener() {
+		
+		System.out.println("second test step");
+	}
+
+	@When("filter show column to display specified rows")
+	public void filter_show_column_to_display_specified_rows() {
+		
+		System.out.println("third test step");
+	}
+
+	@Then("Capture all the content of the page for price name position")
+	public void capture_all_the_content_of_the_page_for_price_name_position() {
+		
+		System.out.println("fourth test step");
+	}
+
+}

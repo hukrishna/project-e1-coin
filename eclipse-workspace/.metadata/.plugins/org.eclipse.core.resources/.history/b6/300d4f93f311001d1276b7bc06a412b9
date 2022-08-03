@@ -1,0 +1,28 @@
+package pagefactory;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class Additional_Filter {
+
+
+	
+	@FindBy(css = "li:nth-child(5) > .x0o17e-0")
+	WebElement add_filters;
+	
+	WebDriver driver;
+	
+	public Additional_Filter(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver,this);
+	}
+	
+
+	
+	public void addFilter() {
+		add_filters.click();
+	}
+
+}

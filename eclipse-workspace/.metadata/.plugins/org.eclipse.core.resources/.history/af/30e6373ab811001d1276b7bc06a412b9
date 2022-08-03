@@ -1,0 +1,67 @@
+import java.util.List;
+
+import org.apache.poi.xssf.eventusermodel.XSSFReader;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+
+import com.excel.lib.util1.Xls_Reader;
+
+
+
+public class Webtable {
+	
+	public static void main(String[] args) throws InterruptedException {
+		
+		WebDriver driver = new FirefoxDriver() ;
+
+        driver.navigate().to("https://coinmarketcap.com");
+        driver.manage().window().maximize();
+
+        Thread.sleep(5000,20);
+
+        WebElement m= driver.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div[2]/div[2]/div[1]"));
+        // Action class to move and click element
+        Actions a = new Actions(driver);
+        a.moveToElement(m).
+                click().build().perform();
+
+        Thread.sleep(5000,20);
+        
+        List<WebElement> colList = driver.findElements(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[5]/table/thead/tr/th"));
+        System.out.println(colList.size());
+
+        int columnIndex = 0;
+        
+
+        
+        for(int i=0; i<colList.size(); i++){
+            System.out.println(colList.get(i).getText());
+            if("Price".equalsIgnoreCase(colList.get(i).getText())){
+            	columnIndex = i ;
+                break;
+            }
+        }
+        
+        System.out.println("column Index : " + columnIndex);
+        
+        List<WebElement> numberOfRows = driver.findElements(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[5]/table/tbody/tr"));
+        System.out.println("number of rows : " + numberOfRows.size());
+        
+         Xls_Reader reader = new Xls_Reader("/home/humakri1/eclipse-workspace/CucumberJava/src/main/java/com/excel/lib/util1/testdataex1.xlsx");
+         reader.addSheet("TableData");
+         reader.addColumn("TableData", "Price");
+        
+        for(int i=1; i<=numberOfRows.size(); i++) {
+        	String value = driver.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[2]/div/div/div[5]/table/tbody/tr["+i+"]/td["+columnIndex+"]")).getText();
+        	System.out.println(value);
+        	
+        	//reader.setCellData("TableData", "Price", i, value);
+        	
+        }
+        
+	}
+
+}
