@@ -7,3 +7,5 @@ Test Creation
 4. Written a library to read and set the excel values 
 5. test runner is configured to generate report which is stored in target directory
 6. the package can be run with Junit
+7. Assertions are implemented in each step 
+8. Thread.sleep is been impleamented on each step inorder to view the steps or the flow of the test
